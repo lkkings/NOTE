@@ -28,8 +28,6 @@ public class DataManager {
         }
         return instance;
     }
-
-    //用户 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     private final String PATH_USER = "PATH_USER";
 
 
@@ -47,13 +45,6 @@ public class DataManager {
     }
 
 
-    /**
-     * 获取当前用户
-     */
-    public String getCurrentUserNickname() {
-        User user = getCurrentUser();
-        return user == null ? "" : user.getNickname();
-    }
 
 
 
@@ -117,27 +108,4 @@ public class DataManager {
         String key = StringUtil.getTrimedString(user.getPhone());
         sdf.edit().remove(key).putString(key, JSON.toJSONString(user)).apply();
     }
-
-    /**
-     * 删除用户
-     */
-    public void removeUser(SharedPreferences sdf, long userId) {
-        if (sdf == null) {
-            return;
-        }
-        sdf.edit().remove(StringUtil.getTrimedString(userId)).apply();
-    }
-
-    /**
-     * 设置当前用户手机号
-     */
-    public void setCurrentUserPhone(String phone) {
-        User user = getCurrentUser();
-        if (user == null) {
-            user = new User();
-        }
-        user.setPhone(phone);
-        saveUser(user);
-    }
-
 }

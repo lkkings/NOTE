@@ -20,7 +20,7 @@ public class NoteDbOpenHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "noteSQLite.db";
     private static final String TABLE_NAME_NOTE = "zhuweng";
-    private static final String CREATE_TABLE_SQL = "create table " + TABLE_NAME_NOTE + "(id integer primary key autoincrement ,userId text,title text,content text,create_time text)";
+    private static final String CREATE_TABLE_SQL = "create table " + TABLE_NAME_NOTE + "(id integer primary key autoincrement ,title text,userId text,content text,create_time text)";
 
     public NoteDbOpenHelper(@Nullable Context context) {
         super(context, DB_NAME, null, 1);

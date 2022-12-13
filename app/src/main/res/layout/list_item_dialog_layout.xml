@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tv_delete"
+        android:background="#E91E63"
         android:text="删除"
         style="@style/MyTextStyle"/>
 
@@ -15,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tv_edit"
+        android:background="#E91E63"
         android:text="编辑"
         style="@style/MyTextStyle"/>
 
