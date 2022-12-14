@@ -16,6 +16,8 @@ import com.lkd.note.utils.LUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 
 /**
  *编辑界面
@@ -23,8 +25,10 @@ import java.util.Date;
 public class EditActivity extends AppCompatActivity {
 
     private Note note;
+    private int cur = 0;
     private EditText etTitle,etContent;
     private NoteDbOpenHelper mNoteDbOpenHelper;
+    private List<Note> noteList;
 
 
     @Override
@@ -46,6 +50,12 @@ public class EditActivity extends AppCompatActivity {
         if (note != null){
             etTitle.setText(note.getTitle());
             etContent.setText(note.getContent());
+            noteList = mNoteDbOpenHelper.queryAllFromDb();
+            for (Note no: noteList){
+                if (no.getId().equals(note.getId()))
+                    break;
+                cur ++;
+            }
         }
 
     }
@@ -69,6 +79,30 @@ public class EditActivity extends AppCompatActivity {
             this.finish();
         }else {
             LUtil.showLongToast(this,"修改失败");
+        }
+    }
+    public void last(View view) {
+        if (cur == 0){
+            LUtil.showLongToast(this, "已经是第一条了");
+            return;
+        }
+        cur --;
+        Note note =  noteList.get(cur);
+        if (note != null) {
+            etTitle.setText(note.getTitle());
+            etContent.setText(note.getContent());
+        }
+    }
+    public void next(View view) {
+        if (cur == noteList.size()-1){
+            LUtil.showLongToast(this, "已经是第一条了");
+            return;
+        }
+        cur ++;
+        Note note =  noteList.get(cur);
+        if (note != null) {
+            etTitle.setText(note.getTitle());
+            etContent.setText(note.getContent());
         }
     }
 

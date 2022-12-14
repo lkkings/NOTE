@@ -30,7 +30,6 @@ public class NoteDbOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(CREATE_TABLE_SQL);
-        System.out.println("============================");
     }
 
     @Override

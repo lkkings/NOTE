@@ -61,7 +61,20 @@
             android:onClick="save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#8ABFE8"
+            ></Button>
+        <Button
+            style="@style/MyBtnStyle"
+            android:text="上一个"
+            android:onClick="last"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ></Button>
+        <Button
+            style="@style/MyBtnStyle"
+            android:text="下一个"
+            android:onClick="next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             ></Button>
 
     </LinearLayout>
